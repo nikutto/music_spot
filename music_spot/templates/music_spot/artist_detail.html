@@ -10,7 +10,7 @@
         <tr><th>Song</th><th>link</th></tr>
         </thead>
         {% for song in artist.song_set.all %}
-        <tr><td> {{ song.name }} </td> <td> {{ song.youtube_link }} </td></tr>
+        <tr><td> <a href = {% url 'music_spot:song_detail' song.id %}>{{ song.name }}</a> </td> <td> <a target="_blank" href={{song.youtube_link}}>{{ song.youtube_link }} </a></td></tr>
         {% endfor %}
     </table>
 {% endblock %}

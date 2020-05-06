@@ -10,7 +10,7 @@
         <tr><th>Name</th></tr>
         </thead>
         {% for artist in artist_list %}
-        <tr><td> {{ artist.name }} </td></tr>
+        <tr><td> <a href = "{% url 'music_spot:artist_detail' artist.id %}">{{ artist.name }}</a> </td></tr>
         {% endfor %}
     </table>
 {% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'music_spot/layout.html' %}
+
+{% block content %}
+    <h1 class="title">
+        {{ song.name }}
+    </h1>
+    <ul>
+    <li> <a href = {% url "music_spot:artist_detail" artist.id %}>{{ artist.name }} </a></li>
+    <li> <a href = {{song.youtube_link}}>{{ song.youtube_link }}</a></li>
+    </ul> 
+    <iframe width="560" height="315" 
+    src="{{ song.youtube_embedded_link}}" 
+    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+{% endblock %}
+
+
