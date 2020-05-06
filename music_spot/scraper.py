@@ -27,10 +27,15 @@ def youtube_search(q,max_results=30):
     
   return search_result
 
+from .models import Song
 
-if __name__ == "__main__":
-  q = input()
-  try:
-    print(youtube_search(q))
-  except HttpError as e:
-    print("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))
+def set_links(force_update=False):
+  for song in Song.objects.all():
+    artist = song.artist
+    if force_update or (song.youtube_video_id is None):
+      json = youtube_search(" ".join([artist.name,song.name]))
+      song.youtube_video_id = json["id"]["videoId"]
+      song.save()
+
+
+  
