@@ -1,9 +1,18 @@
 {% extends 'music_spot/layout.html' %}
 
 {% block content %}
-    <h1 class = "title">
-        Hello, Django. Hello, Bootstrap Navbar!
+    <h1 class="title">
+        Welcome to MusicSpot.(webの練習)
     </h1>
+    <table class="table table-hover">
+        <caption> List of artists </caption>
+        <thead class ="thead-light">
+        <tr><th>Name</th></tr>
+        </thead>
+        {% for artist in artist_list %}
+        <tr><td> {{ artist.name }} </td></tr>
+        {% endfor %}
+    </table>
 {% endblock %}
 
 

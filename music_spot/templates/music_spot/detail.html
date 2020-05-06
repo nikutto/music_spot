@@ -1,0 +1,18 @@
+{% extends 'music_spot/layout.html' %}
+
+{% block content %}
+    <h1 class="title">
+        {{ artist.name }}
+    </h1>
+    <table class="table table-hover">
+        <caption> List of songs </caption>
+        <thead class ="thead-light">
+        <tr><th>Song</th><th>link</th></tr>
+        </thead>
+        {% for song in artist.song_set.all %}
+        <tr><td> {{ song.name }} </td> <td> {{ song.youtube_link }} </td></tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+
