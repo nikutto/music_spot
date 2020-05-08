@@ -7,14 +7,17 @@
     <h2 class="song_name">
         Song title: {{ song.name }}
     </h2>
-    <ul>
-    <li> Artist: <a href = {% url "music_spot:artist_detail" artist.id %}>{{ artist.name }} </a></li>
-    <li> Youtube link: <a href = {{song.youtube_link}}>{{ song.youtube_link }}</a></li>
+    <ul class="list-group">
+    <li class = "list-group-item"><a href = {% url "music_spot:artist_detail" song.artist.id %}>{{ song.artist.name }} </a></li>
+    {% if song.youtube_video_id %}
+    <li class = "list-group-item"><a href = {{song.youtube_link}} target="_blank">{{ song.youtube_link }}</a></li>
+    {% endif %}
     </ul> 
+    {% if song.youtube_video_id %}
     <iframe width="560" height="315" 
     src="{{ song.youtube_embedded_link}}" 
     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
+    {% endif %}
 {% endblock %}
 
 

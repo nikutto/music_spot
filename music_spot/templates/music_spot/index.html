@@ -1,18 +1,14 @@
 {% extends 'music_spot/layout.html' %}
 
 {% block content %}
-    <h1 class="title">
-        Welcome to MusicSpot.(webの練習)
-    </h1>
-    <table class="table table-hover">
-        <caption> List of artists </caption>
-        <thead class ="thead-light">
-        <tr><th>Name</th></tr>
-        </thead>
-        {% for artist in artist_list %}
-        <tr><td> <a href = "{% url 'music_spot:artist_detail' artist.id %}">{{ artist.name }}</a> </td></tr>
-        {% endfor %}
-    </table>
+<h1>
+Welcome.
+</h1>
+<div class="about">
+    <h2>
+    About this site
+    </h2>
+    This is my web page practice and for personal use.
+</div>
+
 {% endblock %}
-
-

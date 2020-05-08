@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 class Artist(models.Model):
     name = models.CharField(max_length=50)
 
@@ -16,7 +15,9 @@ class Song(models.Model):
         return self.name
 
     def youtube_link(self):
+        if self.youtube_video_id is None: return None
         return f"https://www.youtube.com/watch?v={self.youtube_video_id}"
 
     def youtube_embedded_link(self):
+        if self.youtube_video_id is None: return None
         return f"https://www.youtube.com/embed/{self.youtube_video_id}"

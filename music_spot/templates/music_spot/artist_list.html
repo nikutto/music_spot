@@ -1,0 +1,19 @@
+{% extends 'music_spot/layout.html' %}
+
+{% block content %}
+    <h2>
+        Click your favorite artist.
+    </h2>
+    <h3>
+        These artists are my favorite artists.
+    </h3>
+    <div class="list-group">
+        {% for artist in object_list %}
+        <a href="{% url 'music_spot:artist_detail' artist.id %}" class="list-group-item list-group-item-action">
+            {{ artist.name }}
+        </a>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+

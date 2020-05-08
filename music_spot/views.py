@@ -7,22 +7,25 @@ from .models import Artist,Song
 class IndexView(generic.TemplateView):
     template_name = "music_spot/index.html"
 
-    def get_context_data(self,**kwargs):
-        context = super().get_context_data(**kwargs)
-        context["artist_list"] = Artist.objects.all()
-        return context
-
 class ArtistDetailView(generic.DetailView):
     model = Artist
-    template_name = "music_spot/artist_detail.html"
+    template_name = "music_spot/artist_detail.html"    
 
-class SongDetailView(generic.TemplateView):
+class SongDetailView(generic.DetailView):
     template_name = "music_spot/song_detail.html"
+    model = Song
 
-    def get_context_data(self,**kwargs):
-        context = super().get_context_data(**kwargs)
-        context["song"] = Song.objects.get(pk=context["pk"])
-        context["artist"] = context["song"].artist
-        return context
+class SongListView(generic.ListView):
+    template_name = "music_spot/song_list.html"
+    model = Song
+    def get_queryset(self):
+        return Song.objects.order_by('name')
+
+class ArtistListView(generic.ListView):
+    template_name = "music_spot/artist_list.html"
+    model = Artist
+    def get_queryset(self):
+        return Artist.objects.order_by('name')
+
 
 

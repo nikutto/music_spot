@@ -6,14 +6,16 @@
     </h1>
     <h2>
         Click your favorite song.
+
     </h2>
+    <h3>
+    These songs are my favorite artists.
+    </h3>
     <div class="list-group">
-        {% for song in artist.song_set.all %}
+        {% for song in object_list %}
         <a href="{% url 'music_spot:song_detail' song.id %}" class="list-group-item list-group-item-action">
-            {{ song.name }}
+            {{ song.name }} - {{song.artist.name}}
         </a>
         {% endfor %}
     </table>
 {% endblock %}
-
-
