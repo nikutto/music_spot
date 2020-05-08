@@ -9,4 +9,5 @@ urlpatterns = [
     path('song/<int:pk>',views.SongDetailView.as_view(),name='song_detail'),
     path('artist/',views.ArtistListView.as_view(),name='artist_list'),
     path('song/',views.SongListView.as_view(),name='song_list'),
+    path('contact/',views.ContactView.as_view(),name='contact'),
 ]

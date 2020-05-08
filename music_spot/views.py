@@ -27,5 +27,7 @@ class ArtistListView(generic.ListView):
     def get_queryset(self):
         return Artist.objects.order_by('name')
 
+class ContactView(generic.TemplateView):
+    template_name = "music_spot/contact.html"
 
 
